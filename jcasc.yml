@@ -11,7 +11,7 @@ jenkins:
   markupFormatter:
     rawHtml:
       disableSyntaxHighlighting: true
-  numExecutors: 0
+  numExecutors: 2
 unclassified:
   githubpluginconfig:
     configs:
