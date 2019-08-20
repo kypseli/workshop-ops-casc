@@ -18,6 +18,8 @@ unclassified:
     - name: "GitHub - CloudBees Days"
       credentialsId: "cbdays-github-token-secret"
       manageHooks: true
+  casCGlobalConfig:
+    configurationPath: "https://raw.githubusercontent.com/kypseli/workshop-ops-casc/master/jcasc.yml"
   globallibraries:
     libraries:
     - defaultVersion: "master"
