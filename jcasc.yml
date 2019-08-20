@@ -1,0 +1,58 @@
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: true
+  numExecutors: 0
+unclassified:
+  githubpluginconfig:
+    configs:
+    - name: "GitHub - CloudBees Days"
+      credentialsId: "cbdays-github-token-secret"
+      manageHooks: true
+  globallibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "cb-days"
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              credentialsId: "cbdays-github-token"
+              repoOwner: "cloudbees-days"
+              repository: "pipeline-library"
+    - defaultVersion: "master"
+      name: "kypseli"
+      retriever:
+        modernSCM:
+          scm:
+            github:
+              credentialsId: "cbdays-github-token"
+              repoOwner: "kypseli"
+              repository: "pipeline-library"
+credentials:
+  system:
+    domainCredentials:
+      - domain :
+          name: "github.com"
+          description: "GitHub"
+        credentials:
+          - string:
+              scope: GLOBAL
+              id: cbdays-github-token-secret
+              description: "GitHub PAT for beedemo-ops from JCasC - secret text"
+              secret: ${github-ops-token}
+          - usernamePassword:
+              scope: GLOBAL
+              id: cbdays-github-token
+              description: "GitHub PAT for beedemo-ops from JCasC"
+              username: beedemo-ops
+              password: ${github-ops-token}
